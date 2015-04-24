@@ -11,7 +11,6 @@ class xmlClass{
 
 	public function showTime(){
 		$this->processMessages();
-		#return $this->xmlFile->SMS;
 		return $this->msgArray;
 	}
 
@@ -20,8 +19,6 @@ class xmlClass{
 
 			$this->oSMS = $SMS;
 
-#			var_dump($this->oSMS->contactName);exit;
-
 			$author = (string) $this->oSMS->contactName;
 
 			$this->msgArray[$author][] = array(
@@ -29,12 +26,6 @@ class xmlClass{
 					'date'	=>	$this->renderDate(),
 					'content'	=>	(string) $this->oSMS->body
 			);
-/*
-			#Show time !
-			echo '<div class="'.$who.'">';
-			echo '<p>'.$SMS->body.'</p>';
-			echo '<p class="infos">'.date('l d/m/Y - H:i:s', $date).'</p>';
-			echo '</div>';*/
 		}
 
 		return $this->msgArray;
